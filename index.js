@@ -1,36 +1,57 @@
-const btn = document.querySelector(".form__btn");
 const form = document.querySelector(".form");
-const e_Fname = document.querySelector("#e_Fname");
-const e_Lname = document.querySelector("#e_Lname");
-const e_Email = document.querySelector("#e_Email");
-const e_Pass = document.querySelector("#e_Pass");
 
+// Lista de campos a validar
+const fields = [
+  { selector: ".form__fName", errorId: "#e_Fname" },
+  { selector: ".form__lName", errorId: "#e_Lname" },
+  { selector: ".form__email", errorId: "#e_Email", validate: validateEmail },
+  { selector: ".form__pass", errorId: "#e_Pass", validate: validatePassword },
+];
+
+// Función de validación genérica
+function validateField(input, errorElement, customValidation) {
+  const value = input.value.trim();
+
+  if (!value) {
+    errorElement.classList.remove("hidden");
+    return false;
+  } else {
+    errorElement.classList.add("hidden");
+  }
+
+  if (customValidation && !customValidation(value)) {
+    errorElement.classList.remove("hidden");
+    return false;
+  }
+
+  return true;
+}
+
+// Función de validación para email
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Función de validación para password (ejemplo: mínimo 6 caracteres)
+function validatePassword(password) {
+  return password.length >= 6;
+}
+
+// Evento de submit
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-  let inputFname = document.querySelector(".form__fName").value;
-  let inputLname = document.querySelector(".form__lName").value;
-  let inputEmail = document.querySelector(".form__email").value;
-  let inputPass = document.querySelector(".form__pass").value;
+  let isValid = true;
 
-  if (inputFname == "") {
-    e_Fname.classList.remove("hidden");
-  } else {
-    e_Fname.classList.add("hidden");
+  for (const { selector, errorId, validate } of fields) {
+    const input = document.querySelector(selector);
+    const errorElement = document.querySelector(errorId);
+    if (!validateField(input, errorElement, validate)) {
+      isValid = false;
+    }
   }
 
-  if (inputLname == "") {
-    e_Lname.classList.remove("hidden");
-  } else {
-    e_Lname.classList.add("hidden");
-  }
-  if (inputEmail == "") {
-    e_Email.classList.remove("hidden");
-  } else {
-    e_Email.classList.add("hidden");
-  }
-  if (inputPass == "") {
-    e_Pass.classList.remove("hidden");
-  } else {
-    e_Pass.classList.add("hidden");
+  if (isValid) {
+    alert("Formulario enviado con éxito!");
   }
 });

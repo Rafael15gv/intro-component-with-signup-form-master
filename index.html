@@ -1,62 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Intro component with sign up form</title>
 
-    <link rel="stylesheet" href="style.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <main class="container">
-      <section class="info">
-        <h1 class="info__title">Learn to code by <br> watching others</h1>
-        <p class="info__p">
-          See how experienced developers solve problems in real-time. Watching
-          scripted tutorials is great, but understanding how developers think is
-          invaluable.
-         </p>
-      </section>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intro component with sign up form</title>
 
-      <section class="formulario">
-            <div class="descuento">
-              <p class="descuento__p"><strong>Try it free 7 days</strong> then $20/mo. thereafter</p>
-            </div>
-        <div class="box">
-          <form class="form">
-            <input class="form--style form__fName" type="text" name="firstName" placeholder="First Name"/>
-            <p id="e_Fname" class="error hidden">First Name cannot be empty</p>
-            
-            <input class="form--style form__lName" type="text" name="lastName" placeholder="Last Name"/>
-            <p id="e_Lname" class="error hidden">last Name cannot be empty</p>
-            
-            <input class="form--style form__email" type="text" name="email" placeholder="Email Address"/>
-            <p id="e_Email" class="error hidden">First Name cannot be empty</p>
-            
-            <input class="form--style form__pass" type="password" name="password" />
-            <p id="e_Pass" class="error hidden">Password Name cannot be empty</p>
-            <button class="form--style form__btn type="submit">Claim your free trial</button>
-          </form>
-          
-          <p class="footer">
-            By clicking the button, you are agreeing to our<strong class="footer--strong"> Terms and Services</strong>
-          </p>
-        </div>
-      </section>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body>
+  <main class="container">
+    <section class="info">
+      <h1 class="info__title">Learn to code by <br> watching others</h1>
+      <p class="info__p">
+        See how experienced developers solve problems in real-time. Watching
+        scripted tutorials is great, but understanding how developers think is
+        invaluable.
+      </p>
+    </section>
+
+    <section class="formulario">
+      <div class="descuento">
+        <p class="descuento__p"><strong>Try it free 7 days</strong> then $20/mo. thereafter</p>
+      </div>
+      <div class="box">
+        <form class="form">
+          <input class="form--style form__fName" type="text" name="firstName" placeholder="First Name" />
+          <p id="e_Fname" class="error hidden">First Name cannot be empty</p>
+
+          <input class="form--style form__lName" type="text" name="lastName" placeholder="Last Name" />
+          <p id="e_Lname" class="error hidden">last Name cannot be empty</p>
+
+          <input class="form--style form__email" type="text" name="email" placeholder="Email Address" />
+          <p id="e_Email" class="error hidden">Email must be valid</p>
+
+          <input class="form--style form__pass" type="password" name="password" placeholder="Password" />
+          <p id="e_Pass" class="error hidden">Password Name cannot be empty</p>
+          <button class="form--style form__btn" type="submit">Claim your free trial</button>
+        </form>
+
+        <p class="footer">
+          By clicking the button, you are agreeing to our<strong class="footer--strong"> Terms and Services</strong>
+        </p>
+      </div>
+    </section>
   </main>
 
   <script src="/index.js"></script>
-  </body>
+</body>
+
 </html>
